@@ -21,11 +21,6 @@ python:
 ! python main.py
 ```
 
-## 간단한 예
-python: 
-```python
-! python main.py
-```
 
 ## 게임 하는 법
 한판을 진행할때마다, 카드를 받은뒤에 게임을 하지 안할지를 결정할 수가 있습니다.
