@@ -18,8 +18,17 @@ class Bj:
 
 # 베팅을 할지 말지 결정하는 메소드
     def pos_bet(self) :
-        self.dec = str(input('베팅을 할시에 y, 안하면 n :')) # 베팅을 할지 말지 결정
-        if self.dec == 'y' :
+        try:
+          self.dec = int(input('베팅을 할시에 1, 안하면 2 :')) # 베팅을 할지 말지 결정
+        except Exception as e:
+          print('error:',e)
+          print('에러가 나도록 적었으므로 강제 한라운드 패스!!')
+        else:
+          if self.dec != 1:
+            print('2 또는 다른 수를 적었으므로 이번 라운드는 패스!!')
+            print('사람 : {}, 컴퓨터 : {}'.format(self.person, self.ai))
+            pass
+          if self.dec == 1 :
             self.bet = int(input('베팅을 걸 갯수를 적으세요.')) # 베팅을 할 칩의 갯수 결정
             self.total_person = 0 # 카드의 총합을 구하기 위한 기본 세팅
             self.total_ai = 0 # 카드의 총합을 구하기 위한 기본 세팅
@@ -49,12 +58,8 @@ class Bj:
                 self.ai += self.bet # 베팅을 한 만큼의 칩을 컴퓨터가 얻게긴다.
                 print('사람이 졌습니다')
                 print('사람 : {}, 컴퓨터 : {}'.format(self.person, self.ai))
-
-        else : # 베팅을 안할시에는 그냥 넘어감
-            pass
-
             
-# 게임의 횟수를 알려주는는 메소드
+# 게임의 횟수를
     @classmethod
     def game_count(cls) :
         print('{}번째 게임입니다'.format(cls.count))
